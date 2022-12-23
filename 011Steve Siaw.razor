@@ -1,0 +1,189 @@
+﻿@page "/011Steve Siaw"
+
+<PageTitle>Steve Siaw</PageTitle>
+<h1>Steve Siaw</h1>
+<p>
+You can try to enter integers, real numbers and texts that are not numbers at all.
+</p>
+<table>
+    <tr>
+        <td>First argument:</td>
+        <td><input style="text-align:right" @bind="x"/></td>
+    </tr>
+    
+        <td>Second argument:</td>
+        <td><input style="text-align:right" @bind="y"/></td>
+    </tr>
+    <tr>
+        <td>Third argument:</td>
+        <td><input style="text-align:right" @bind="z"/></td>
+    </tr>
+    <tr>
+        <td>Fourth argument:</td>
+        <td><input style="text-align:right" @bind="w"/></td>
+    </tr>
+    <tr>
+        <td>Fifth argument:</td>
+        <td><input style="text-align:right" @bind="t"/></td>
+    </tr>
+    <tr>
+        <td style="text-align:center" colspan="2">
+            <button @onclick="Average">Determine Average</button> &nbsp; 
+            
+        <br />
+        <button @onclick="less">Less Amount</button> &nbsp;
+
+        <button @onclick="Bigger">Bigger amount</button> &nbsp;
+        
+        <br/>
+        <button @onclick="Positive">Positive amount</button> &nbsp;
+        <button @onclick="Negative">Negative amount</button> &nbsp;
+        <br />
+
+        <button @onclick="MostNearAvg">MostNearAvg</button>  &nbsp; 
+        </td>
+
+    </tr>
+    <tr>
+        
+        <td>Result:</td>
+
+        <tr>input
+
+        <td><input style="text-align:right" @bind="result"/></td>
+    </tr>
+</table>
+<br/>
+@code {
+
+    private double x=0;
+    private double y=-1.5;
+    private double z = 1.5;
+    private double w = 2;
+    private double t = -0.7;
+    private double result;
+
+    private void Average()
+    {
+        System.Console.WriteLine("x:"+ x + "y:" + y + "z:" + z + "w:" + w + " t: " + t);
+        double Average = (x + y + z + w + t)/5;
+        result = Average;
+        System.Console.WriteLine("Average for x, y, z, w, t: "+ Average);
+        System.Console.WriteLine();
+
+   }
+
+        private void Bigger()
+
+    {
+
+       System.Console.WriteLine("x:"+ x + "y:" + y + "z:" + z + "w:" + w + " t: " + t);
+       double Average = (x + y + z + w + t) / 5;
+
+        double less = 0;
+
+        if (x < Average)
+           less++;
+
+        if (y < Average)
+           less++;
+
+        if (z < Average)
+           less ++;
+
+        if (w < Average)
+           less ++;
+
+        if (t < Average)
+           less ++;
+           result =less;
+           System.Console.WriteLine("less for x, y, z, w, t: " + less);
+           System.Console.WriteLine();
+
+    }
+    private void Positive()
+   
+    {
+        System.Console.WriteLine("x:"+ x + "y:" + y + "z:" + z + "w:" + w + " t: " + t);
+
+        double positive = 0;
+
+        if (x > 0) 
+              positive++;
+
+       if (y > 0)
+              positive++;
+
+       if (z > 0)
+               positive++;
+
+       if (w > 0)
+               positive++;
+
+       if (t > 0)
+               
+               positive++;
+             result = positive;
+
+             System.Console.WriteLine("Positive for x, y, z, w, t: " + positive);
+             System.Console.WriteLine();
+
+
+     }
+     private void Negative()
+
+    {
+        System.Console.WriteLine("x:"+ x + "y:" + y + "z:" + z + "w:" + w + " t: " + t);
+
+        double negative = 0;
+
+        if (x < 0) 
+              negative++;
+
+       if (y < 0)
+              negative++;
+
+       if (z < 0)
+               negative++;
+
+       if (w < 0)
+               negative++;
+
+       if (t < 0)
+               
+               negative++;
+             result = negative;
+
+             System.Console.WriteLine("negative for x, y, z, w, t: " + negative);
+             System.Console.WriteLine();
+
+    }
+    private void MostNearAvg()
+    {
+
+
+     System.Console.WriteLine ("x:"+ x + "y:" + y + "z:" + z + "w:" + w + " t: " + t);
+     double Average = (x + y + z + w + t + z) / 5;
+     double MostNearAvg = x;
+     {
+
+        if (System.Math.Abs(y - Average) < System.Math.Abs(MostNearAvg - Average))
+            MostNearAvg= y;
+
+        if (System.Math.Abs(z - Average) < System.Math.Abs(MostNearAvg - Average))
+            MostNearAvg= z;
+
+        if (System.Math.Abs(w - Average) < System.Math.Abs(MostNearAvg - Average))
+            MostNearAvg= w;
+
+        if (System.Math.Abs(t - Average) < System.Math.Abs(MostNearAvg - Average))
+            MostNearAvg= t;
+          result = MostNearAvg;
+          System.Console.WriteLine("MostNearAvg for x, y, z, w, t: for x, y, z, w,t:" + MostNearAvg);
+          System.Console.WriteLine();
+
+         }
+
+     }
+  }
+
